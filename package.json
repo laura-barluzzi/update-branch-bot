@@ -1,11 +1,17 @@
 {
   "name": "pr-up-to-date",
   "version": "0.0.1",
-  "main": "main.js",
   "author": "Clemens Wolff <clewolff@microsoft.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "standard \"**/*.js\""
+  },
   "dependencies": {
+    "got": "^9.6.0",
     "isomorphic-git": "^0.67.5",
     "tmp-promise": "^2.0.2"
+  },
+  "devDependencies": {
+    "standard": "^14.3.1"
   }
 }
