@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "queueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "webhookqueue",
+      "connection": "AZURE_STORAGE_CONNECTION"
+    }
+  ]
+}
