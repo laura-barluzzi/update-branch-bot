@@ -1,7 +1,7 @@
 {
-  "name": "pr-up-to-date",
+  "name": "update-branch-bot",
   "version": "0.0.1",
-  "author": "Clemens Wolff <clewolff@microsoft.com>",
+  "author": "Laura Barluzzi <laura@koalacoder.com>",
   "license": "MIT",
   "scripts": {
     "lint": "standard \"**/*.js\""
