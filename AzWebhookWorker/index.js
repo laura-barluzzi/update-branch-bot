@@ -1,9 +1,9 @@
-import { env } from 'process'
-import main from '../lib/main'
+const process = require('process')
+const main = require('../lib/main')
 
 async function worker (context, queueItem) {
   await main({
-    authToken: env.GITHUB_TOKEN,
+    authToken: process.env.GITHUB_TOKEN,
     log: context.log,
     ...queueItem
   })
@@ -11,4 +11,4 @@ async function worker (context, queueItem) {
   context.done()
 }
 
-export default worker
+module.exports = worker

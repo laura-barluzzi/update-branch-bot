@@ -1,9 +1,9 @@
-import Github from '../lib/github'
+const Github = require('../lib/github')
 
 function webhook (context, req) {
   const github = new Github({ log: context.log })
 
-  const webhook = github.parseWebhook(req.body)
+  const webhook = github.parseWebhook({ payload: req.body })
 
   context.bindings.httpResponse = {
     status: 200
@@ -16,4 +16,4 @@ function webhook (context, req) {
   context.done()
 }
 
-export default webhook
+module.exports = webhook
