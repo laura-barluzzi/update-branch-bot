@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "got": "^9.6.0",
-    "isomorphic-git": "^0.67.5",
-    "tmp-promise": "^2.0.2"
+    "isomorphic-git": "^0.67.5"
   },
   "devDependencies": {
     "standard": "^14.3.1"
