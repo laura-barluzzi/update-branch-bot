@@ -1,9 +1,13 @@
+const process = require('process')
 const Github = require('../lib/github')
 
 function webhook (context, req) {
-  const github = new Github({ log: context.log })
+  const github = new Github({
+    secret: process.env.GITHUB_WEBHOOK_SECRET,
+    log: context.log
+  })
 
-  const webhook = github.parseWebhook({ payload: req.body })
+  const webhook = github.parseWebhook(req)
 
   context.bindings.httpResponse = {
     status: 200
