@@ -19,7 +19,6 @@
     },
     "webhookSecret": {
       "type": "securestring",
-      "minLength": 1,
       "metadata": {
         "description": "Secret configured on the Github webhook"
       }
