@@ -1,6 +1,12 @@
 # update-branch-bot
 
-## Deploy to Azure
+## Setup
+
+### Step 1: Create a Github personal access token
+
+To enable the bot to create pull request comments and access repositories, we need to create a [Github personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line). If the bot will operate on public repositories, the token should have the scope `public_repo`. If the bot will also operate on private repositories, the token should have the scope `repo`.
+
+### Step 2: Deploy the bot
 
 First, install the dependencies:
 
@@ -22,3 +28,27 @@ func azure functionapp publish <name>
 ```
 
 The bot will be available at the URL `https://<name>.azurewebsites.net/api/AzGithubWebhook`
+
+### Step 3: Configure the Github webhook
+
+```sh
+curl 'https://api.github.com/repos/<organization>/<repository>/hooks' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer <token>' \
+  -d '
+  {
+    "name": "web",
+    "active": true,
+    "events": [
+      "push",
+      "pull_request"
+    ],
+    "config": {
+      "url": "<url>",
+      "secret": "<secret>",
+      "content_type": "json",
+      "insecure_ssl": "0"
+    }
+  }
+  '
+```
