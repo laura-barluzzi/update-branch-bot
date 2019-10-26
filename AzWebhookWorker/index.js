@@ -23,8 +23,6 @@ async function worker (context, queueItem) {
   })
 
   await main.run(queueItem)
-
-  context.done()
 }
 
 module.exports = worker
