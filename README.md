@@ -8,6 +8,8 @@ To enable the bot to create pull request comments and access repositories, we ne
 
 ### Step 2: Deploy the bot
 
+#### Option 1: Azure Functions
+
 First, install the dependencies:
 
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
@@ -29,6 +31,20 @@ func azure functionapp publish <name>
 ```
 
 The bot will be available at the URL `https://<name>.azurewebsites.net/api/AzGithubWebhook`
+
+#### Option 2: Google Cloud Functions
+
+First, install the dependencies:
+
+Next, create the GCP resources and deploy the bot:
+
+```sh
+yarn install --prod
+gcloud functions deploy GcpGithubWebhook --runtime nodejs8 --trigger-http --set-env-vars GITHUB_WEBHOOK_SECRET=<secret>
+
+```
+
+The bot will be available at the URL `https://<region>-<name>.cloudfunctions.net/GcpGithubWebhook`
 
 ### Step 3: Configure the Github webhook
 

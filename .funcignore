@@ -2,3 +2,6 @@
 .vscode
 local.settings.json
 **/*.ts
+index.js
+.gcloudignore
+GcpGithubWebhook

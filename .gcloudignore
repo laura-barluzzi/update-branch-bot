@@ -1,0 +1,14 @@
+.gcloudignore
+.git*
+node_modules
+tsconfig.json
+README.md
+LICENSE.txt
+
+# Azure Functions files
+.funcignore
+AzGithubWebhook
+AzWebhookWorker
+azuredeploy.json
+host.json
+local.settings.json
