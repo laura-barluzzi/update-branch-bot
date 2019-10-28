@@ -8,6 +8,7 @@
     "lint": "standard \"**/*.js\""
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^1.1.5",
     "got": "^9.6.0",
     "isomorphic-git": "^0.67.5"
   },

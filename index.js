@@ -1,2 +1,2 @@
 module.exports.GcpGithubWebhook = require('./GcpGithubWebhook')
-//module.exports.GcpWebhookWorker = require('./GcpWebhookWorker')
+module.exports.GcpWebhookWorker = require('./GcpWebhookWorker')
