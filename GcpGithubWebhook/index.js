@@ -23,21 +23,20 @@ module.exports = (req, res) => {
     return
   }
 
-  /*
   const github = new Github({
     secret: process.env.GITHUB_WEBHOOK_SECRET,
     log: console.log
   })
 
-  // Must meet this syntax
-  // https://cloud.google.com/pubsub/docs/reference/rest/v1/PubsubMessage
   const webhook = github.parseWebhook({
     body: req.body || {},
     headers: req.headers || {}
   })
-  */
 
-  const webhook = {"hello":[1, "world"]}
+  if (!webhook) {
+    res.status(200).send('OK')
+    return
+  }
 
   const pubsub = new PubSub();
   const topic = pubsub.topic(outputTopic);
