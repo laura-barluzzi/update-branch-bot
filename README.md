@@ -19,7 +19,7 @@ Next, create the GCP resources and deploy the bot:
 ```sh
 yarn install --prod
 gcloud functions deploy GcpGithubWebhook --runtime nodejs10 --trigger-http --set-env-vars GITHUB_WEBHOOK_SECRET=<secret>,GITHUB_TOKEN=<token>,TOPIC_NAME=webhookqueue
-gcloud functions deploy GcpWebhookWorker --trigger-topic webhookqueue --runtime nodejs10 --set-env-vars GITHUB_TOKEN=<token>
+gcloud functions deploy GcpWebhookWorker --trigger-topic webhookqueue --runtime nodejs10 --set-env-vars GITHUB_TOKEN=<token>,SLACK_WEBHOOK_URL=<url>
 ```
 
 The bot will be available at the URL `https://<region>-<name>.cloudfunctions.net/GcpGithubWebhook`

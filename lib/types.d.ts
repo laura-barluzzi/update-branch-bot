@@ -10,6 +10,7 @@ export interface Branch {
 
 export interface PullRequest {
   id: string;
+  url: string;
   number: number;
   author: string;
   branch: string;
