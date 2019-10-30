@@ -8,9 +8,9 @@ const Main = require('../lib/main')
  * @param {string} pubsubMessage.data
  */
 module.exports = pubsubMessage => {
-  const message = Buffer.from(pubsubMessage.data, 'base64').toString();
+  const message = Buffer.from(pubsubMessage.data, 'base64').toString()
   const queueItem = JSON.parse(message)
-  const log = console.log;
+  const log = console.log
   const authToken = process.env.GITHUB_TOKEN
 
   const main = new Main({
@@ -20,4 +20,4 @@ module.exports = pubsubMessage => {
   })
 
   main.run(queueItem)
-};
+}

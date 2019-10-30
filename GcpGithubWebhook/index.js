@@ -1,6 +1,6 @@
 const process = require('process')
 const Github = require('../lib/github')
-const {PubSub} = require('@google-cloud/pubsub');
+const { PubSub } = require('@google-cloud/pubsub')
 
 /**
  * @typedef {import('express').Request} HttpRequest
@@ -38,8 +38,8 @@ module.exports = (req, res) => {
     return
   }
 
-  const pubsub = new PubSub();
-  const topic = pubsub.topic(outputTopic);
+  const pubsub = new PubSub()
+  const topic = pubsub.topic(outputTopic)
   topic.publish(Buffer.from(JSON.stringify(webhook), 'utf8'))
     .then(() => res.status(200).send('OK'))
 }
