@@ -9,8 +9,7 @@ const Main = require('../lib/main')
  */
 module.exports = pubsubMessage => {
   const message = Buffer.from(pubsubMessage.data, 'base64').toString();
-  const branch = JSON.parse(message)
-  console.log(branch);
+  const queueItem = JSON.parse(message)
   const log = console.log;
   const authToken = process.env.GITHUB_TOKEN
 
@@ -20,5 +19,5 @@ module.exports = pubsubMessage => {
     log
   })
 
-  main.run(branch)
+  main.run(queueItem)
 };
