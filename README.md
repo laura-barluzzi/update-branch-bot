@@ -71,3 +71,10 @@ curl 'https://api.github.com/repos/<organization>/<repository>/hooks' \
   }
   '
 ```
+
+## Development
+
+This project uses the following static analysis tools:
+
+- `yarn run lint` runs the [standard linter](https://standardjs.com)
+- `yarn run typecheck` runs the [Typescript compiler](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html)

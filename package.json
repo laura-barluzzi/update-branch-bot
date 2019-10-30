@@ -1,5 +1,6 @@
 {
   "name": "update-branch-bot",
+  "engines" : { "node" : ">=10.0.0" },
   "version": "0.0.1",
   "author": "Laura Barluzzi <laura@koalacoder.com>",
   "license": "MIT",
