@@ -15,4 +15,10 @@ export interface PullRequest {
   author: string;
   branch: string;
   baseBranch: string;
+  organization: string;
+}
+
+export interface GitHubUsers {
+  email: string;
+  login: string;
 }
