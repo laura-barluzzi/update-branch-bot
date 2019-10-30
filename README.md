@@ -8,7 +8,23 @@ To enable the bot to create pull request comments and access repositories, we ne
 
 ### Step 2: Deploy the bot
 
-#### Option 1: Azure Functions
+#### Option 1: Google Cloud Functions
+
+First, install the dependencies. Follow the instructions under the "before you begin" section here:
+
+- [gcloud Command-Line Tool](https://cloud.google.com/functions/docs/quickstart)
+
+Next, create the GCP resources and deploy the bot:
+
+```sh
+yarn install --prod
+gcloud functions deploy GcpGithubWebhook --runtime nodejs10 --trigger-http --set-env-vars GITHUB_WEBHOOK_SECRET=<secret>,GITHUB_TOKEN=<token>,TOPIC_NAME=webhookqueue
+gcloud functions deploy GcpWebhookWorker --trigger-topic webhookqueue --runtime nodejs10 --set-env-vars GITHUB_TOKEN=<token>
+```
+
+The bot will be available at the URL `https://<region>-<name>.cloudfunctions.net/GcpGithubWebhook`
+
+#### Option 2: Azure Functions
 
 First, install the dependencies:
 
@@ -31,20 +47,6 @@ func azure functionapp publish <name>
 ```
 
 The bot will be available at the URL `https://<name>.azurewebsites.net/api/AzGithubWebhook`
-
-#### Option 2: Google Cloud Functions
-
-First, install the dependencies:
-
-Next, create the GCP resources and deploy the bot:
-
-```sh
-yarn install --prod
-gcloud functions deploy GcpGithubWebhook --runtime nodejs8 --trigger-http --set-env-vars GITHUB_WEBHOOK_SECRET=<secret>,GITHUB_TOKEN=<token>,TOPIC_NAME=webhookqueue
-gcloud functions deploy GcpWebhookWorker --trigger-topic webhookqueue --runtime nodejs8 --set-env-vars GITHUB_TOKEN=<token>
-```
-
-The bot will be available at the URL `https://<region>-<name>.cloudfunctions.net/GcpGithubWebhook`
 
 ### Step 3: Configure the Github webhook
 
