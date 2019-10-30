@@ -35,7 +35,7 @@ Next, create the Azure resources:
 
 ```sh
 az group create --location <location> --name <name>
-az group deployment create --resource-group <name> --template-file azuredeploy.json --parameters appName=<name> githubToken=<token> webhookSecret=<secret>
+az group deployment create --resource-group <name> --template-file azuredeploy.json --parameters appName=<name> GITHUB_TOKEN=<token> GITHUB_WEBHOOK_SECRET=<secret> SLACK_WEBHOOK_URL=<url>
 func azure functionapp fetch-app-settings <name>
 ```
 

@@ -10,17 +10,23 @@
         "description": "Name used to identify the resources created by this deployment"
       }
     },
-    "githubToken": {
+    "GITHUB_TOKEN": {
       "type": "securestring",
       "minLength": 1,
       "metadata": {
         "description": "Personal access token used for authentication with Github"
       }
     },
-    "webhookSecret": {
+    "GITHUB_WEBHOOK_SECRET": {
       "type": "securestring",
       "metadata": {
         "description": "Secret configured on the Github webhook"
+      }
+    },
+    "SLACK_WEBHOOK_URL": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Webhook URL for Slack App"
       }
     }
   },
@@ -120,11 +126,15 @@
             },
             {
               "name": "GITHUB_TOKEN",
-              "value": "[parameters('githubToken')]"
+              "value": "[parameters('GITHUB_TOKEN')]"
             },
             {
               "name": "GITHUB_WEBHOOK_SECRET",
-              "value": "[parameters('webhookSecret')]"
+              "value": "[parameters('GITHUB_WEBHOOK_SECRET')]"
+            },
+            {
+              "name": "SLACK_WEBHOOK_URL",
+              "value": "[parameters('SLACK_WEBHOOK_URL')]"
             }
           ]
         }
