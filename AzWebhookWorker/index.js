@@ -16,12 +16,13 @@ const Slack = require('../lib/slack')
 async function worker (context, queueItem) {
   const log = context.log
   const authToken = process.env.GITHUB_TOKEN
+  const slackAuthToken = process.env.SLACK_TOKEN
   const webhookURL = process.env.SLACK_WEBHOOK_URL
 
   const main = new Main({
     git: new Git({ log }),
     github: new Github({ authToken, log }),
-    slack: new Slack({ log, webhookURL }),
+    slack: new Slack({ slackAuthToken, webhookURL, log }),
     log
   })
 

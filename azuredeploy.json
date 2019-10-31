@@ -28,6 +28,12 @@
       "metadata": {
         "description": "Webhook URL for Slack App"
       }
+    },
+    "SLACK_TOKEN": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Bot access token for Slack App"
+      }
     }
   },
   "variables": {
@@ -135,6 +141,10 @@
             {
               "name": "SLACK_WEBHOOK_URL",
               "value": "[parameters('SLACK_WEBHOOK_URL')]"
+            },
+            {
+              "name": "SLACK_TOKEN",
+              "value": "[parameters('SLACK_TOKEN')]"
             }
           ]
         }
