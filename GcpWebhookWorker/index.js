@@ -3,6 +3,7 @@ const Git = require('../lib/git').Git
 const Github = require('../lib/github')
 const Main = require('../lib/main')
 const Slack = require('../lib/slack')
+const users = require('../lib/users')
 
 /**
  * @param {object} pubsubMessage
@@ -20,6 +21,7 @@ module.exports = pubsubMessage => {
     git: new Git({ log }),
     github: new Github({ authToken, log }),
     slack: new Slack({ slackAuthToken, webhookURL, log }),
+    users,
     log
   })
 
