@@ -1,0 +1,23 @@
+name: Check linting and types of each push
+
+on: [push, pull_request]
+
+jobs:
+  lint_code:
+    name: Lint
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [10]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Install Dependencies
+        id: setup
+        with:
+          node-version: ${{ matrix.node }}
+        run: |
+          npm install -g yarn
+          yarn install
+      - name: 
+        if: failure()
+        run: echo 'Failed to install packages during step ${{ steps.setup.id }}.'
