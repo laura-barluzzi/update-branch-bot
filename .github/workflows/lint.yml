@@ -5,19 +5,15 @@ on: [push, pull_request]
 jobs:
   lint_code:
     name: Lint
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [10]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Install Dependencies
-        id: setup
-        with:
-          node-version: ${{ matrix.node }}
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Install dependencies
         run: |
-          npm install -g yarn
+          npm install --user yarn
           yarn install
-      - name: 
-        if: failure()
-        run: echo 'Failed to install packages during step ${{ steps.setup.id }}.'
+      - name: Run Standard lint
+        run: yarn run lint
+      - name: Run type check tsc
+        run: yarn run typecheck
