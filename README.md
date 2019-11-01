@@ -1,5 +1,7 @@
 # update-branch-bot
 
+![](https://github.com/laura-barluzzi/update-branch-bot/workflows/Linting/badge.svg)
+
 ## Setup
 
 ### Step 1: Create a Github personal access token

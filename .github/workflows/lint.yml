@@ -1,4 +1,4 @@
-name: Check linting and types of each push
+name: Linting
 
 on: [push, pull_request]
 
